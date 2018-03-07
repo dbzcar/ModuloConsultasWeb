@@ -1,0 +1,120 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ModuloConsultasWeb.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device, user-scalable=no, initial-scale=1.0,maximum-scale=10, minimum-scale=1.0"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+   
+   
+    <title>Consultas</title>
+<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>--%>
+
+     <script type="text/javascript" src="../../bootstrap/js/jquery-1.10.2.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+    <div class="container">
+
+		<div class="bs-docs-section clearfix">
+		    <div class="row">
+		        <div class="col-lg-12">
+		            <div class="bs-component">           
+		            	<nav class="navbar navbar-default">                                                   
+		                	<div class="container-fluid">
+                                
+                                
+                                      <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+
+		                         <AnonymousTemplate>
+                                     <div class="navbar-header">
+                                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            </button>
+                                         <a class="navbar-brand" runat="server" href="~/WebForm/WebInicio.aspx">Home</a>
+                                     </div>
+                                    
+                                 </AnonymousTemplate>
+                                    
+                                 <LoggedInTemplate>
+
+
+                                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+		                    	<ul class="nav navbar-nav">
+		                      		<li class="dropdown">
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Clientes <span class="caret"></span></a>
+				                        <ul class="dropdown-menu" role="menu">
+				                        	<li><a href="#">Registrar</a></li>
+				                        	<li><a runat="server" href="~/WebForm/Clientes/WebCliente.aspx">Listar</a></li>
+				                        </ul>
+		                      		</li>
+
+			                        <li class="dropdown">
+			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Adopciones<span class="caret"></span></a>
+			                        	<ul class="dropdown-menu" role="menu">
+				                          	<li><a href="#">Solicitar</a></li>
+				                          	<li><a href="#">Listar solicitudes</a></li>
+			                        	</ul>
+			                        </li>
+		                    	</ul>
+		                    	<ul class="nav navbar-nav navbar-right">
+		                        	<li class="dropdown"><a href="#" onclick="pageTracker._link(this.href); return false;">Código Facilito</a>
+		                        	</li>
+
+                                    <li><a href="#" title="Administra tu usuario">Hola, <asp:LoginName ID="LoginName1" runat="server" /></a></li>
+
+		                        	<li class="dropdown">
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
+		                        		<ul class="dropdown-menu" role="menu">
+		                          			<li><asp:LoginStatus ID="LoginStatus1" LogoutPageUrl="~/WebForm/Login/Login.aspx" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" /></li>
+		                        		</ul>
+		                      		</li>
+		                    	</ul>
+
+		                    </div>
+                                 </LoggedInTemplate>
+
+                                       </asp:LoginView>
+
+                                                                           
+		                  		</div>
+		                                              
+		                                     
+		            </nav>
+                              
+		        </div>
+           	</div>
+        </div>
+    </div> 
+ </div>
+                         
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="Contenido" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr/>
+
+            <footer>
+                <p>&copy; <%:DateTime.Now.Year%> - Mi aplicación ASP.NET</p>
+                
+            </footer>
+        </div>
+    </form>
+  <%--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.bundle.js"></script>
+   
+</body>
+</html>
