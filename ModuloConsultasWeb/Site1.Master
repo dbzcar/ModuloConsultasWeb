@@ -26,7 +26,7 @@
 
         <div class="container">
 
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">             
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">             
         <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
 
 		                         <%--<AnonymousTemplate>
@@ -77,17 +77,20 @@
 
                                      
     <AnonymousTemplate>
-           
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+          <a class="navbar-brand" href="#">Navbar
+              <img src="bootstrap/image/Logo.png" width="30" alt="Logo" />
+          </a>
 
     </AnonymousTemplate>
 
     <LoggedInTemplate>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>   
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="~/WebForm/WebInicio.aspx" runat="server">Home <span class="sr-only">(current)</span></a>
@@ -103,13 +106,18 @@
           <a class="dropdown-item" href="~/WebForm/Clientes/WebCliente.aspx" runat="server">Lista</a>
 
           <div class="dropdown-divider"></div>
-          <a><asp:LoginStatus ID="LoginStatus1" LogoutPageUrl="~/WebForm/Login/Login.aspx" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" /></a>
 
         </div>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" href="#" title="Administra tu usuario">Hola, <asp:LoginName ID="LoginName1" runat="server" />
       </li>
+
+    <li class="nav-item">
+        <a><asp:LoginStatus ID="LoginStatus1" LogoutPageUrl="~/WebForm/Login/Login.aspx" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" LogoutText="Salir" CssClass="nav-link" LogoutAction="Refresh" /></a>
+    </li> 
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
