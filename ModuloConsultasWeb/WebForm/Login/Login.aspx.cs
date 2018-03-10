@@ -18,12 +18,15 @@ namespace ModuloConsultasWeb.WebForm.Login
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (Autenticacion.Autenticar(txtUsername.Value, txtPassword.Text))
+            if (Autenticacion.Autenticar(txtUsername.Value, txtPassword.Value))
             {
                 
                 FormsAuthentication.RedirectFromLoginPage(txtUsername.Value,true);
 
+                
             }
+
+            
         }
     }
 }
