@@ -24,25 +24,68 @@
 <body>
     <form id="form1" runat="server">
 
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#334878;">  
-           <a class="navbar-brand" href="#">UMG
-              <img runat="server" src="~/bootstrap/image/Logo.png" width="50" alt="Logo" />
-          </a>
+        <div class="container">
 
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">             
         <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+
+		                         <%--<AnonymousTemplate>
+                                     <div class="navbar-header">
+                                          <a class="navbar-brand" runat="server" href="~/WebForm/WebInicio.aspx">Home</a>
+                                     </div>
+                                    
+                                 </AnonymousTemplate>--%>
+                                    
+                            <%--     <LoggedInTemplate>
+
+
+                                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+		                    	<ul class="nav navbar-nav">
+		                      		<li class="dropdown">
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Clientes <span class="caret"></span></a>
+				                        <ul class="dropdown-menu" role="menu">
+				                        	<li><a href="#">Registrar</a></li>
+				                        	<li><a runat="server" href="~/WebForm/Clientes/WebCliente.aspx">Listar</a></li>
+				                        </ul>
+		                      		</li>
+
+			                        <li class="dropdown">
+			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Adopciones<span class="caret"></span></a>
+			                        	<ul class="dropdown-menu" role="menu">
+				                          	<li><a href="#">Solicitar</a></li>
+				                          	<li><a href="#">Listar solicitudes</a></li>
+			                        	</ul>
+			                        </li>
+		                    	</ul>
+		                    	<ul class="nav navbar-nav navbar-right">
+		                        	<li class="dropdown"><a href="#" onclick="pageTracker._link(this.href); return false;">Código Facilito</a>
+		                        	</li>
+
+                                    <li><a href="#" title="Administra tu usuario">Hola, <asp:LoginName ID="LoginName1" runat="server" /></a></li>
+
+		                        	<li class="dropdown">
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
+		                        		<ul class="dropdown-menu" role="menu">
+		                          			<li><asp:LoginStatus ID="LoginStatus1" LogoutPageUrl="~/WebForm/Login/Login.aspx" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" /></li>
+		                        		</ul>
+		                      		</li>
+		                    	</ul>
+
+		                    </div>
+                                 </LoggedInTemplate>--%>
+
                                      
     <AnonymousTemplate>
-        
-        <ul class="navbar-nav mr-auto">
-         <li class="nav-item">
-        <a><asp:LoginStatus ID="LoginStatus1" LogoutPageUrl="~/WebForm/Login/Login.aspx" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" LogoutText="Salir" CssClass="nav-link" LogoutAction="Refresh" /></a>
-        </li> 
-        </ul>
+          <a class="navbar-brand" href="#">Navbar
+              <img src="bootstrap/image/Logo.png" width="30" alt="Logo" />
+          </a>
 
     </AnonymousTemplate>
 
     <LoggedInTemplate>
 
+ 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>   
@@ -53,66 +96,47 @@
         <a class="nav-link" href="~/WebForm/WebInicio.aspx" runat="server">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Nosotros</a>
+        <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Facultades
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="~/WebForm/Clientes/WebCliente.aspx" runat="server">Ingenieria</a>
-            <div class="dropdown-divider"></div> 
-          <a class="dropdown-item" href="~/WebForm/Clientes/WebCliente.aspx" runat="server">Derecho</a>
-        </div>
+          <a class="dropdown-item" href="~/WebForm/Clientes/WebCliente.aspx" runat="server">Lista</a>
 
+          <div class="dropdown-divider"></div>
+
+        </div>
       </li>
 
       <li class="nav-item">
-          <a class="nav-link" href="#" title="Usuario">Hola, <asp:LoginName ID="LoginName1" runat="server" /></a>
+          <a class="nav-link" href="#" title="Administra tu usuario">Hola, <asp:LoginName ID="LoginName1" runat="server" />
       </li>
 
-     <li class="nav-item">
-       <a><asp:LoginStatus ID="LoginStatus1" LogoutPageUrl="~/WebForm/Login/Login.aspx" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" LogoutText="Salir" LogoutAction="Refresh" CssClass="nav-link" /></a>
+    <li class="nav-item">
+        <a><asp:LoginStatus ID="LoginStatus1" LogoutPageUrl="~/WebForm/Login/Login.aspx" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" LogoutText="Salir" CssClass="nav-link" LogoutAction="Refresh" /></a>
     </li> 
 
     </ul>
- <%--   <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Busqueda" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>--%>
-
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
 
 
     </LoggedInTemplate>
 
+  
+
 </asp:LoginView>
 
          </nav>
 
-<%--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img runat="server" class="d-block w-40" src="~/bootstrap/image/1.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img runat="server" class="d-block w-100" src="~/bootstrap/image/2.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img runat="server" class="d-block w-100" src="~/bootstrap/image/3.jpg" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>--%>
-        
-        <hr />
+        </div>
+                                                                                                               
+                         
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="Contenido" runat="server">
             </asp:ContentPlaceHolder>
