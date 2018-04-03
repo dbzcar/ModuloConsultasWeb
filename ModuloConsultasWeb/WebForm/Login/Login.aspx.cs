@@ -18,9 +18,48 @@ namespace ModuloConsultasWeb.WebForm.Login
 {
     public partial class Login : System.Web.UI.Page
     {
+        ClsGoogleProfile profile = new ClsGoogleProfile();
         protected void Page_Load(object sender, EventArgs e)
         {
+            GoogleConnect.ClientId = "779744404878-p98n0epspv3gpnq05k5s596am3og7ekq.apps.googleusercontent.com";
+            GoogleConnect.ClientSecret = "nSVPZIW2NSRCn2FuMuV9GvsQ";
 
+            GoogleConnect.RedirectUri = Request.Url.AbsoluteUri.Split('?')[0];
+
+
+            if (!string.IsNullOrEmpty(Request.QueryString["code"]))
+            {
+
+                string code = Request.QueryString["code"];
+                string json = GoogleConnect.Fetch("me", code);
+                ClsGoogleProfile profile = new JavaScriptSerializer().Deserialize<ClsGoogleProfile>(json);
+                //lblId.Text = profile.Id;
+                //lblName.Text = profile.DisplayName;
+                //lblEmail.Text = profile.Emails.Find(email => email.Type == "account").Value;
+                //lblGender.Text = profile.Gender;
+                //lblType.Text = profile.ObjectType;
+                //ProfileImage.ImageUrl = profile.Image.Url;
+                //pnlProfile.Visible = true;
+
+                string Verificaemail = profile.Emails.Find(email => email.Type == "account").Value;
+                
+                if (Verificaemail.Contains("@miumg.edu.gt"))
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alerta", "alert('Correcto')", true);
+                    FormsAuthentication.RedirectFromLoginPage(profile.DisplayName, true);
+                }
+
+                else
+                {
+                    GoogleConnect.Clear(Request.QueryString["code"]);
+                }
+
+
+            }
+            if (Request.QueryString["error"] == "access_denied")
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('Accesso Denegado.')", true);
+            }
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -30,7 +69,6 @@ namespace ModuloConsultasWeb.WebForm.Login
                 
                 FormsAuthentication.RedirectFromLoginPage(txtUsername.Value,true);
 
-                
             }
 
             
@@ -39,15 +77,11 @@ namespace ModuloConsultasWeb.WebForm.Login
         protected void btnlogin_Click(object sender, EventArgs e)
         {
             GoogleConnect.Authorize("profile", "email");
-            //your client id   
-            string clientid = "779744404878-p98n0epspv3gpnq05k5s596am3og7ekq.apps.googleusercontent.com";
-            //your client secret   
-            string clientsecret = "nSVPZIW2NSRCn2FuMuV9GvsQ";
-            //your redirection url   
-            string redirection_url = "http://localhost:64248/WebForm/Clientes/WebCliente.aspx";
-            string url = "https://accounts.google.com/o/oauth2/v2/auth?scope=profile&include_granted_scopes=true&redirect_uri=" + redirection_url + "&response_type=code&client_id=" + clientid + "";
-            Response.Redirect(url);
+        }
 
+        protected void Clear(object sender, EventArgs e)
+        {
+            GoogleConnect.Clear(Request.QueryString["code"]);
         }
     }
 }

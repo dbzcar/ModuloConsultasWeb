@@ -14,13 +14,13 @@
     <div class="container col-md-6">
       		<div class="form-group">
         		<label for="username" class="col-form-label-lg">Nombre de usuario:</label>
-                <input runat="server" class="form-control" id="txtUsername" type="text" name="username" placeholder="Nombre Usuario" required>
+                <input runat="server" class="form-control" id="txtUsername" type="text" name="username" placeholder="Nombre Usuario">
 
     	   </div>
         
     		<div class="form-group">
         		<label for="username" class="col-form-label-lg">Contraseña:</label>
-                <input runat="server" class="form-control" id="txtPassword" type="password" name="username" placeholder="Contraseña" required>
+                <input runat="server" class="form-control" id="txtPassword" type="password" name="username" placeholder="Contraseña">
     	        </div>
 
     		<div class="form-group">
