@@ -52,6 +52,7 @@ namespace ModuloConsultasWeb.WebForm.Login
                 else
                 {
                     GoogleConnect.Clear(Request.QueryString["code"]);
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alerta", "alert('Introduzca Correo Correcto')", true);
                 }
 
 
