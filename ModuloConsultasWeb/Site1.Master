@@ -16,8 +16,6 @@
 <%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>--%>
 
-     <script type="text/javascript" src="../../bootstrap/js/jquery-3.3.1.js"></script>
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -124,7 +122,8 @@
             </footer>
         </div>
     </form>
-  <%--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+
+    <script type="text/javascript" src="../../bootstrap/js/jquery-3.3.1.js"></script>
     <script src="../../bootstrap/js/bootstrap.js"></script>
     <script src="../../bootstrap/js/bootstrap.bundle.js"></script>
    
